@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="gb2312"?>
+<AppConfig>
+  <Area>
+    <Language>ZH</Language>
+    <List>
+      <Item>中文[ZH]</Item>
+      <Item>英文[EN]</Item>
+    </List>
+  </Area>
+  <Area>
+    <Language>EN</Language>
+    <List>
+      <Item>Chinese[ZH]</Item>
+      <Item>English[EN]</Item>
+    </List>
+  </Area> 
+</AppConfig>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ <Resource>
+        <Form>
+               <Name>FrmLogon</Name>
+                   <Controls>
+                           <Control name="frmlogon" text="User logon" />
+                           <Control name="lblusername" text="Username:" />
+                           <Control name="lblpassword" text="Password:" />
+                           <Control name="lbllanguage" text="Language:" />
+                    <Control name="btnlogon" text="Logon" />
+                    <Control name="btncancel" text="Exit" />
+                          <Control name="btnchangepwd" text="Change Password" />
+            
+           </Controls>
+    
+      </Form>
+       <Form>
+              <Name>FrmPasswordChange</Name>
+                  <Controls>
+                          <Control name="frmpasswordchange" text="Change password" />
+                          <Control name="lblusername" text="Username:" />
+                          <Control name="lblpassword" text="Old Password:" />
+                          <Control name="lblnewpassword" text="New Password:" />
+                          <Control name="lblpasswordconfirm" text="Password Confirm:" />
+                          <Control name="btnok" text="OK" />
+                          <Control name="btncancel" text="Return" />
+                </Controls>
+       </Form>
+     <Form>
+       <Name>frmMain</Name>
+       <Controls>
+         <Control name="btnExit" text="Exit  " />
+         <Control name="lblusername" text="Username:" />
+         <Control name="lblpassword" text="Password:" />
+         <Control name="lbllanguage" text="Language:" />
+         <Control name="btnlogon" text="Logon" />
+         <Control name="btncancel" text="Exit" />
+         <Control name="btnchangepwd" text="Change Password" />
+
+       </Controls>
+
+     </Form>
+</Resource>

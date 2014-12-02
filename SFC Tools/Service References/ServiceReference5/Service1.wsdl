@@ -1,0 +1,1017 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="QueryMateriaMaster">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryMateriaMasterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryMateriaMasterResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceOut">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Backres" type="tns:BackRes" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TableInfo">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="SetInfo">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="ArrayInfo" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BackRes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="arrstrres" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="workorderdetail">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TPSoap" type="tns:TPSoap" />
+      <s:complexType name="TPSoap">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserPWD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IpAddress" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="QueryMateriaMaster1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtbegin" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryMateriaMaster1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryMateriaMaster1Result" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryMateriaMaster2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PartNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryMateriaMaster2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryMateriaMaster2Result" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryStock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="warehouse" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryStockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryStockResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryStock1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="warehouse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="partno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryStock1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryStock1Result" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryBom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryBomResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryBomResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryBom1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dtbegin" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryBom1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryBom1Result" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryBom2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryBom2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryBom2Result" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoodsTransferBill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BillHead" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BillDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoodsTransferBillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GoodsTransferBillResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoodsBillDownload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BillHead" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BillDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoodsBillDownloadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GoodsBillDownloadResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChargeBill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BillHead" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BillDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChargeBillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChargeBillResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChargeReturnBill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BillHead" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BillDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChargeReturnBillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChargeReturnBillResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryWorkOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WorkOrder" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryWorkOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryWorkOrderResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoodsBill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BillHead" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WorkOrder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PartNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="Warehouse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Bin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoodsBillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GoodsBillResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoodsReturnBill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BillHead" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WorkOrder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PartNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="Warehouse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Bin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GoodsReturnBillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GoodsReturnBillResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FinishedGoodsBill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BillHead" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WorkOrder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PartNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="Warehouse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Bin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FinishedGoodsBillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FinishedGoodsBillResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseWorkOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WorkOrder" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseWorkOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CloseWorkOrderResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateWorkOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BillHead" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeptCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PartNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateWorkOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateWorkOrderResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateWorkOrderNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BillHead" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeptCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PartNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Line" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Plant" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateWorkOrderNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateWorkOrderNewResult" type="tns:ServiceOut" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="QueryMateriaMasterSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryMateriaMaster" />
+  </wsdl:message>
+  <wsdl:message name="QueryMateriaMasterSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryMateriaMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryMateriaMasterTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="QueryMateriaMaster1SoapIn">
+    <wsdl:part name="parameters" element="tns:QueryMateriaMaster1" />
+  </wsdl:message>
+  <wsdl:message name="QueryMateriaMaster1SoapOut">
+    <wsdl:part name="parameters" element="tns:QueryMateriaMaster1Response" />
+  </wsdl:message>
+  <wsdl:message name="QueryMateriaMaster1TPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="QueryMateriaMaster2SoapIn">
+    <wsdl:part name="parameters" element="tns:QueryMateriaMaster2" />
+  </wsdl:message>
+  <wsdl:message name="QueryMateriaMaster2SoapOut">
+    <wsdl:part name="parameters" element="tns:QueryMateriaMaster2Response" />
+  </wsdl:message>
+  <wsdl:message name="QueryMateriaMaster2TPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="QueryStockSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryStock" />
+  </wsdl:message>
+  <wsdl:message name="QueryStockSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryStockTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="QueryStock1SoapIn">
+    <wsdl:part name="parameters" element="tns:QueryStock1" />
+  </wsdl:message>
+  <wsdl:message name="QueryStock1SoapOut">
+    <wsdl:part name="parameters" element="tns:QueryStock1Response" />
+  </wsdl:message>
+  <wsdl:message name="QueryStock1TPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="QueryBomSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryBom" />
+  </wsdl:message>
+  <wsdl:message name="QueryBomSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryBomResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryBomTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="QueryBom1SoapIn">
+    <wsdl:part name="parameters" element="tns:QueryBom1" />
+  </wsdl:message>
+  <wsdl:message name="QueryBom1SoapOut">
+    <wsdl:part name="parameters" element="tns:QueryBom1Response" />
+  </wsdl:message>
+  <wsdl:message name="QueryBom1TPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="QueryBom2SoapIn">
+    <wsdl:part name="parameters" element="tns:QueryBom2" />
+  </wsdl:message>
+  <wsdl:message name="QueryBom2SoapOut">
+    <wsdl:part name="parameters" element="tns:QueryBom2Response" />
+  </wsdl:message>
+  <wsdl:message name="QueryBom2TPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="GoodsTransferBillSoapIn">
+    <wsdl:part name="parameters" element="tns:GoodsTransferBill" />
+  </wsdl:message>
+  <wsdl:message name="GoodsTransferBillSoapOut">
+    <wsdl:part name="parameters" element="tns:GoodsTransferBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="GoodsTransferBillTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="GoodsBillDownloadSoapIn">
+    <wsdl:part name="parameters" element="tns:GoodsBillDownload" />
+  </wsdl:message>
+  <wsdl:message name="GoodsBillDownloadSoapOut">
+    <wsdl:part name="parameters" element="tns:GoodsBillDownloadResponse" />
+  </wsdl:message>
+  <wsdl:message name="GoodsBillDownloadTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="ChargeBillSoapIn">
+    <wsdl:part name="parameters" element="tns:ChargeBill" />
+  </wsdl:message>
+  <wsdl:message name="ChargeBillSoapOut">
+    <wsdl:part name="parameters" element="tns:ChargeBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChargeBillTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="ChargeReturnBillSoapIn">
+    <wsdl:part name="parameters" element="tns:ChargeReturnBill" />
+  </wsdl:message>
+  <wsdl:message name="ChargeReturnBillSoapOut">
+    <wsdl:part name="parameters" element="tns:ChargeReturnBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChargeReturnBillTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="QueryWorkOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryWorkOrder" />
+  </wsdl:message>
+  <wsdl:message name="QueryWorkOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryWorkOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryWorkOrderTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="GoodsBillSoapIn">
+    <wsdl:part name="parameters" element="tns:GoodsBill" />
+  </wsdl:message>
+  <wsdl:message name="GoodsBillSoapOut">
+    <wsdl:part name="parameters" element="tns:GoodsBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="GoodsBillTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="GoodsReturnBillSoapIn">
+    <wsdl:part name="parameters" element="tns:GoodsReturnBill" />
+  </wsdl:message>
+  <wsdl:message name="GoodsReturnBillSoapOut">
+    <wsdl:part name="parameters" element="tns:GoodsReturnBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="GoodsReturnBillTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="FinishedGoodsBillSoapIn">
+    <wsdl:part name="parameters" element="tns:FinishedGoodsBill" />
+  </wsdl:message>
+  <wsdl:message name="FinishedGoodsBillSoapOut">
+    <wsdl:part name="parameters" element="tns:FinishedGoodsBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="FinishedGoodsBillTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="CloseWorkOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseWorkOrder" />
+  </wsdl:message>
+  <wsdl:message name="CloseWorkOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseWorkOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseWorkOrderTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="CreateWorkOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateWorkOrder" />
+  </wsdl:message>
+  <wsdl:message name="CreateWorkOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateWorkOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateWorkOrderTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:message name="CreateWorkOrderNewSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateWorkOrderNew" />
+  </wsdl:message>
+  <wsdl:message name="CreateWorkOrderNewSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateWorkOrderNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateWorkOrderNewTPSoap">
+    <wsdl:part name="TPSoap" element="tns:TPSoap" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="QueryMateriaMaster">
+      <wsdl:input message="tns:QueryMateriaMasterSoapIn" />
+      <wsdl:output message="tns:QueryMateriaMasterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryMateriaMaster1">
+      <wsdl:input message="tns:QueryMateriaMaster1SoapIn" />
+      <wsdl:output message="tns:QueryMateriaMaster1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryMateriaMaster2">
+      <wsdl:input message="tns:QueryMateriaMaster2SoapIn" />
+      <wsdl:output message="tns:QueryMateriaMaster2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryStock">
+      <wsdl:input message="tns:QueryStockSoapIn" />
+      <wsdl:output message="tns:QueryStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryStock1">
+      <wsdl:input message="tns:QueryStock1SoapIn" />
+      <wsdl:output message="tns:QueryStock1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryBom">
+      <wsdl:input message="tns:QueryBomSoapIn" />
+      <wsdl:output message="tns:QueryBomSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryBom1">
+      <wsdl:input message="tns:QueryBom1SoapIn" />
+      <wsdl:output message="tns:QueryBom1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryBom2">
+      <wsdl:input message="tns:QueryBom2SoapIn" />
+      <wsdl:output message="tns:QueryBom2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GoodsTransferBill">
+      <wsdl:input message="tns:GoodsTransferBillSoapIn" />
+      <wsdl:output message="tns:GoodsTransferBillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GoodsBillDownload">
+      <wsdl:input message="tns:GoodsBillDownloadSoapIn" />
+      <wsdl:output message="tns:GoodsBillDownloadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChargeBill">
+      <wsdl:input message="tns:ChargeBillSoapIn" />
+      <wsdl:output message="tns:ChargeBillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChargeReturnBill">
+      <wsdl:input message="tns:ChargeReturnBillSoapIn" />
+      <wsdl:output message="tns:ChargeReturnBillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryWorkOrder">
+      <wsdl:input message="tns:QueryWorkOrderSoapIn" />
+      <wsdl:output message="tns:QueryWorkOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GoodsBill">
+      <wsdl:input message="tns:GoodsBillSoapIn" />
+      <wsdl:output message="tns:GoodsBillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GoodsReturnBill">
+      <wsdl:input message="tns:GoodsReturnBillSoapIn" />
+      <wsdl:output message="tns:GoodsReturnBillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FinishedGoodsBill">
+      <wsdl:input message="tns:FinishedGoodsBillSoapIn" />
+      <wsdl:output message="tns:FinishedGoodsBillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseWorkOrder">
+      <wsdl:input message="tns:CloseWorkOrderSoapIn" />
+      <wsdl:output message="tns:CloseWorkOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateWorkOrder">
+      <wsdl:input message="tns:CreateWorkOrderSoapIn" />
+      <wsdl:output message="tns:CreateWorkOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateWorkOrderNew">
+      <wsdl:input message="tns:CreateWorkOrderNewSoapIn" />
+      <wsdl:output message="tns:CreateWorkOrderNewSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryMateriaMaster">
+      <soap:operation soapAction="http://tempuri.org/QueryMateriaMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:QueryMateriaMasterTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryMateriaMaster1">
+      <soap:operation soapAction="http://tempuri.org/QueryMateriaMaster1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:QueryMateriaMaster1TPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryMateriaMaster2">
+      <soap:operation soapAction="http://tempuri.org/QueryMateriaMaster2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:QueryMateriaMaster2TPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryStock">
+      <soap:operation soapAction="http://tempuri.org/QueryStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:QueryStockTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryStock1">
+      <soap:operation soapAction="http://tempuri.org/QueryStock1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:QueryStock1TPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBom">
+      <soap:operation soapAction="http://tempuri.org/QueryBom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:QueryBomTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBom1">
+      <soap:operation soapAction="http://tempuri.org/QueryBom1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:QueryBom1TPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBom2">
+      <soap:operation soapAction="http://tempuri.org/QueryBom2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:QueryBom2TPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoodsTransferBill">
+      <soap:operation soapAction="http://tempuri.org/GoodsTransferBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GoodsTransferBillTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoodsBillDownload">
+      <soap:operation soapAction="http://tempuri.org/GoodsBillDownload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GoodsBillDownloadTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChargeBill">
+      <soap:operation soapAction="http://tempuri.org/ChargeBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ChargeBillTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChargeReturnBill">
+      <soap:operation soapAction="http://tempuri.org/ChargeReturnBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ChargeReturnBillTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryWorkOrder">
+      <soap:operation soapAction="http://tempuri.org/QueryWorkOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:QueryWorkOrderTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoodsBill">
+      <soap:operation soapAction="http://tempuri.org/GoodsBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GoodsBillTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoodsReturnBill">
+      <soap:operation soapAction="http://tempuri.org/GoodsReturnBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GoodsReturnBillTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinishedGoodsBill">
+      <soap:operation soapAction="http://tempuri.org/FinishedGoodsBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FinishedGoodsBillTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseWorkOrder">
+      <soap:operation soapAction="http://tempuri.org/CloseWorkOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CloseWorkOrderTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWorkOrder">
+      <soap:operation soapAction="http://tempuri.org/CreateWorkOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateWorkOrderTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWorkOrderNew">
+      <soap:operation soapAction="http://tempuri.org/CreateWorkOrderNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateWorkOrderNewTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="QueryMateriaMaster">
+      <soap12:operation soapAction="http://tempuri.org/QueryMateriaMaster" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:QueryMateriaMasterTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryMateriaMaster1">
+      <soap12:operation soapAction="http://tempuri.org/QueryMateriaMaster1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:QueryMateriaMaster1TPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryMateriaMaster2">
+      <soap12:operation soapAction="http://tempuri.org/QueryMateriaMaster2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:QueryMateriaMaster2TPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryStock">
+      <soap12:operation soapAction="http://tempuri.org/QueryStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:QueryStockTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryStock1">
+      <soap12:operation soapAction="http://tempuri.org/QueryStock1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:QueryStock1TPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBom">
+      <soap12:operation soapAction="http://tempuri.org/QueryBom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:QueryBomTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBom1">
+      <soap12:operation soapAction="http://tempuri.org/QueryBom1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:QueryBom1TPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryBom2">
+      <soap12:operation soapAction="http://tempuri.org/QueryBom2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:QueryBom2TPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoodsTransferBill">
+      <soap12:operation soapAction="http://tempuri.org/GoodsTransferBill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GoodsTransferBillTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoodsBillDownload">
+      <soap12:operation soapAction="http://tempuri.org/GoodsBillDownload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GoodsBillDownloadTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChargeBill">
+      <soap12:operation soapAction="http://tempuri.org/ChargeBill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ChargeBillTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChargeReturnBill">
+      <soap12:operation soapAction="http://tempuri.org/ChargeReturnBill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ChargeReturnBillTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryWorkOrder">
+      <soap12:operation soapAction="http://tempuri.org/QueryWorkOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:QueryWorkOrderTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoodsBill">
+      <soap12:operation soapAction="http://tempuri.org/GoodsBill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GoodsBillTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GoodsReturnBill">
+      <soap12:operation soapAction="http://tempuri.org/GoodsReturnBill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GoodsReturnBillTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinishedGoodsBill">
+      <soap12:operation soapAction="http://tempuri.org/FinishedGoodsBill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:FinishedGoodsBillTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseWorkOrder">
+      <soap12:operation soapAction="http://tempuri.org/CloseWorkOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CloseWorkOrderTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWorkOrder">
+      <soap12:operation soapAction="http://tempuri.org/CreateWorkOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateWorkOrderTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWorkOrderNew">
+      <soap12:operation soapAction="http://tempuri.org/CreateWorkOrderNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateWorkOrderNewTPSoap" part="TPSoap" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://10.197.10.28:8003/Service1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://10.197.10.28:8003/Service1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

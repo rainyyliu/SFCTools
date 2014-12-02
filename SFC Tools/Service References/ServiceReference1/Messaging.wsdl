@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendOCMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ocAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toOC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOCMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendOCMessageResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthenticationSoapHeader" type="tns:AuthenticationSoapHeader" />
+      <s:complexType name="AuthenticationSoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="SendSMSMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="smsAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toPhone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSMessageResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFormatSMSMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="smsAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toPhone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="formatID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendFormatSMSMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendFormatSMSMessageResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveSMSMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="smsAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReceiveSMSMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReceiveSMSMessageResult" type="tns:ArrayOfSmsMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSmsMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SmsMessage" nillable="true" type="tns:SmsMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SmsMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MsgID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiveDateTime" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAttachment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msgId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttachmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttachmentResult" type="tns:ArrayOfAttachment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAttachment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Attachment" nillable="true" type="tns:Attachment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Attachment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MessageId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentBase64String" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOcUserState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sipUri" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOcUserStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOcUserStateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendingMessageStatusByToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tokenId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSendingMessageStatusByTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSendingMessageStatusByTokenResult" type="tns:MessageStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="MessageStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="UnSend" />
+          <s:enumeration value="SendSuccess" />
+          <s:enumeration value="SendFailure" />
+          <s:enumeration value="None" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SendGroupMails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SmtpID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SmtpPassowrd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SmtpAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoteAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NotesPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendGroupMailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendGroupMailsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendGroupMailsWithAttachments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Attachments" type="tns:ArrayOfAttachment" />
+            <s:element minOccurs="0" maxOccurs="1" name="SmtpID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SmtpPassowrd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SmtpAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoteAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NotesPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendGroupMailsWithAttachmentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendGroupMailsWithAttachmentsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+      <s:element name="ArrayOfSmsMessage" nillable="true" type="tns:ArrayOfSmsMessage" />
+      <s:element name="ArrayOfAttachment" nillable="true" type="tns:ArrayOfAttachment" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="MessageStatus" type="tns:MessageStatus" />
+    </s:schema>
+    <s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendOCMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SendOCMessage" />
+  </wsdl:message>
+  <wsdl:message name="SendOCMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SendOCMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendOCMessageAuthenticationSoapHeader">
+    <wsdl:part name="AuthenticationSoapHeader" element="tns:AuthenticationSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMSMessage" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSMessageAuthenticationSoapHeader">
+    <wsdl:part name="AuthenticationSoapHeader" element="tns:AuthenticationSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SendFormatSMSMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SendFormatSMSMessage" />
+  </wsdl:message>
+  <wsdl:message name="SendFormatSMSMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SendFormatSMSMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendFormatSMSMessageAuthenticationSoapHeader">
+    <wsdl:part name="AuthenticationSoapHeader" element="tns:AuthenticationSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:ReceiveSMSMessage" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:ReceiveSMSMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSMessageAuthenticationSoapHeader">
+    <wsdl:part name="AuthenticationSoapHeader" element="tns:AuthenticationSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttachment" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachmentAuthenticationSoapHeader">
+    <wsdl:part name="AuthenticationSoapHeader" element="tns:AuthenticationSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetOcUserStateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOcUserState" />
+  </wsdl:message>
+  <wsdl:message name="GetOcUserStateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOcUserStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOcUserStateAuthenticationSoapHeader">
+    <wsdl:part name="AuthenticationSoapHeader" element="tns:AuthenticationSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSendingMessageStatusByTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSendingMessageStatusByToken" />
+  </wsdl:message>
+  <wsdl:message name="GetSendingMessageStatusByTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSendingMessageStatusByTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSendingMessageStatusByTokenAuthenticationSoapHeader">
+    <wsdl:part name="AuthenticationSoapHeader" element="tns:AuthenticationSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SendGroupMailsSoapIn">
+    <wsdl:part name="parameters" element="tns:SendGroupMails" />
+  </wsdl:message>
+  <wsdl:message name="SendGroupMailsSoapOut">
+    <wsdl:part name="parameters" element="tns:SendGroupMailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendGroupMailsAuthenticationSoapHeader">
+    <wsdl:part name="AuthenticationSoapHeader" element="tns:AuthenticationSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SendGroupMailsWithAttachmentsSoapIn">
+    <wsdl:part name="parameters" element="tns:SendGroupMailsWithAttachments" />
+  </wsdl:message>
+  <wsdl:message name="SendGroupMailsWithAttachmentsSoapOut">
+    <wsdl:part name="parameters" element="tns:SendGroupMailsWithAttachmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendGroupMailsWithAttachmentsAuthenticationSoapHeader">
+    <wsdl:part name="AuthenticationSoapHeader" element="tns:AuthenticationSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="SendOCMessageHttpGetIn">
+    <wsdl:part name="ocAccount" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="toOC" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOCMessageHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSMessageHttpGetIn">
+    <wsdl:part name="smsAccount" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="toPhone" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSMessageHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="SendFormatSMSMessageHttpGetIn">
+    <wsdl:part name="smsAccount" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="toPhone" type="s:string" />
+    <wsdl:part name="formatID" type="s:string" />
+    <wsdl:part name="content" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="SendFormatSMSMessageHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSMessageHttpGetIn">
+    <wsdl:part name="smsAccount" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSMessageHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSmsMessage" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachmentHttpGetIn">
+    <wsdl:part name="msgId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachmentHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAttachment" />
+  </wsdl:message>
+  <wsdl:message name="GetOcUserStateHttpGetIn">
+    <wsdl:part name="sipUri" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOcUserStateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSendingMessageStatusByTokenHttpGetIn">
+    <wsdl:part name="tokenId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSendingMessageStatusByTokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:MessageStatus" />
+  </wsdl:message>
+  <wsdl:message name="SendGroupMailsHttpGetIn">
+    <wsdl:part name="To" type="s:string" />
+    <wsdl:part name="Cc" type="s:string" />
+    <wsdl:part name="Subject" type="s:string" />
+    <wsdl:part name="Body" type="s:string" />
+    <wsdl:part name="SmtpID" type="s:string" />
+    <wsdl:part name="SmtpPassowrd" type="s:string" />
+    <wsdl:part name="SmtpAddress" type="s:string" />
+    <wsdl:part name="NoteAddress" type="s:string" />
+    <wsdl:part name="NotesPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendGroupMailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="SendOCMessageHttpPostIn">
+    <wsdl:part name="ocAccount" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="toOC" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOCMessageHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSMessageHttpPostIn">
+    <wsdl:part name="smsAccount" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="toPhone" type="s:string" />
+    <wsdl:part name="content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSMessageHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="SendFormatSMSMessageHttpPostIn">
+    <wsdl:part name="smsAccount" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="toPhone" type="s:string" />
+    <wsdl:part name="formatID" type="s:string" />
+    <wsdl:part name="content" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="SendFormatSMSMessageHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSMessageHttpPostIn">
+    <wsdl:part name="smsAccount" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReceiveSMSMessageHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSmsMessage" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachmentHttpPostIn">
+    <wsdl:part name="msgId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAttachmentHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAttachment" />
+  </wsdl:message>
+  <wsdl:message name="GetOcUserStateHttpPostIn">
+    <wsdl:part name="sipUri" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOcUserStateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSendingMessageStatusByTokenHttpPostIn">
+    <wsdl:part name="tokenId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSendingMessageStatusByTokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:MessageStatus" />
+  </wsdl:message>
+  <wsdl:message name="SendGroupMailsHttpPostIn">
+    <wsdl:part name="To" type="s:string" />
+    <wsdl:part name="Cc" type="s:string" />
+    <wsdl:part name="Subject" type="s:string" />
+    <wsdl:part name="Body" type="s:string" />
+    <wsdl:part name="SmtpID" type="s:string" />
+    <wsdl:part name="SmtpPassowrd" type="s:string" />
+    <wsdl:part name="SmtpAddress" type="s:string" />
+    <wsdl:part name="NoteAddress" type="s:string" />
+    <wsdl:part name="NotesPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendGroupMailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:portType name="MessagingSoap">
+    <wsdl:operation name="SendOCMessage">
+      <wsdl:input message="tns:SendOCMessageSoapIn" />
+      <wsdl:output message="tns:SendOCMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSMessage">
+      <wsdl:input message="tns:SendSMSMessageSoapIn" />
+      <wsdl:output message="tns:SendSMSMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFormatSMSMessage">
+      <wsdl:input message="tns:SendFormatSMSMessageSoapIn" />
+      <wsdl:output message="tns:SendFormatSMSMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSMessage">
+      <wsdl:input message="tns:ReceiveSMSMessageSoapIn" />
+      <wsdl:output message="tns:ReceiveSMSMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachment">
+      <wsdl:input message="tns:GetAttachmentSoapIn" />
+      <wsdl:output message="tns:GetAttachmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOcUserState">
+      <wsdl:input message="tns:GetOcUserStateSoapIn" />
+      <wsdl:output message="tns:GetOcUserStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendingMessageStatusByToken">
+      <wsdl:input message="tns:GetSendingMessageStatusByTokenSoapIn" />
+      <wsdl:output message="tns:GetSendingMessageStatusByTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendGroupMails">
+      <wsdl:input message="tns:SendGroupMailsSoapIn" />
+      <wsdl:output message="tns:SendGroupMailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendGroupMailsWithAttachments">
+      <wsdl:input message="tns:SendGroupMailsWithAttachmentsSoapIn" />
+      <wsdl:output message="tns:SendGroupMailsWithAttachmentsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MessagingHttpGet">
+    <wsdl:operation name="SendOCMessage">
+      <wsdl:input message="tns:SendOCMessageHttpGetIn" />
+      <wsdl:output message="tns:SendOCMessageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSMessage">
+      <wsdl:input message="tns:SendSMSMessageHttpGetIn" />
+      <wsdl:output message="tns:SendSMSMessageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFormatSMSMessage">
+      <wsdl:input message="tns:SendFormatSMSMessageHttpGetIn" />
+      <wsdl:output message="tns:SendFormatSMSMessageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSMessage">
+      <wsdl:input message="tns:ReceiveSMSMessageHttpGetIn" />
+      <wsdl:output message="tns:ReceiveSMSMessageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachment">
+      <wsdl:input message="tns:GetAttachmentHttpGetIn" />
+      <wsdl:output message="tns:GetAttachmentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOcUserState">
+      <wsdl:input message="tns:GetOcUserStateHttpGetIn" />
+      <wsdl:output message="tns:GetOcUserStateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendingMessageStatusByToken">
+      <wsdl:input message="tns:GetSendingMessageStatusByTokenHttpGetIn" />
+      <wsdl:output message="tns:GetSendingMessageStatusByTokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendGroupMails">
+      <wsdl:input message="tns:SendGroupMailsHttpGetIn" />
+      <wsdl:output message="tns:SendGroupMailsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MessagingHttpPost">
+    <wsdl:operation name="SendOCMessage">
+      <wsdl:input message="tns:SendOCMessageHttpPostIn" />
+      <wsdl:output message="tns:SendOCMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSMessage">
+      <wsdl:input message="tns:SendSMSMessageHttpPostIn" />
+      <wsdl:output message="tns:SendSMSMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendFormatSMSMessage">
+      <wsdl:input message="tns:SendFormatSMSMessageHttpPostIn" />
+      <wsdl:output message="tns:SendFormatSMSMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSMessage">
+      <wsdl:input message="tns:ReceiveSMSMessageHttpPostIn" />
+      <wsdl:output message="tns:ReceiveSMSMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachment">
+      <wsdl:input message="tns:GetAttachmentHttpPostIn" />
+      <wsdl:output message="tns:GetAttachmentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOcUserState">
+      <wsdl:input message="tns:GetOcUserStateHttpPostIn" />
+      <wsdl:output message="tns:GetOcUserStateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSendingMessageStatusByToken">
+      <wsdl:input message="tns:GetSendingMessageStatusByTokenHttpPostIn" />
+      <wsdl:output message="tns:GetSendingMessageStatusByTokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendGroupMails">
+      <wsdl:input message="tns:SendGroupMailsHttpPostIn" />
+      <wsdl:output message="tns:SendGroupMailsHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MessagingSoap" type="tns:MessagingSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendOCMessage">
+      <soap:operation soapAction="http://tempuri.org/SendOCMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SendOCMessageAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSMessage">
+      <soap:operation soapAction="http://tempuri.org/SendSMSMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SendSMSMessageAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFormatSMSMessage">
+      <soap:operation soapAction="http://tempuri.org/SendFormatSMSMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SendFormatSMSMessageAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSMessage">
+      <soap:operation soapAction="http://tempuri.org/ReceiveSMSMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ReceiveSMSMessageAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachment">
+      <soap:operation soapAction="http://tempuri.org/GetAttachment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAttachmentAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOcUserState">
+      <soap:operation soapAction="http://tempuri.org/GetOcUserState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetOcUserStateAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendingMessageStatusByToken">
+      <soap:operation soapAction="http://tempuri.org/GetSendingMessageStatusByToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSendingMessageStatusByTokenAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendGroupMails">
+      <soap:operation soapAction="http://tempuri.org/SendGroupMails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SendGroupMailsAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendGroupMailsWithAttachments">
+      <soap:operation soapAction="http://tempuri.org/SendGroupMailsWithAttachments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SendGroupMailsWithAttachmentsAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MessagingSoap12" type="tns:MessagingSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendOCMessage">
+      <soap12:operation soapAction="http://tempuri.org/SendOCMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SendOCMessageAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSMessage">
+      <soap12:operation soapAction="http://tempuri.org/SendSMSMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SendSMSMessageAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFormatSMSMessage">
+      <soap12:operation soapAction="http://tempuri.org/SendFormatSMSMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SendFormatSMSMessageAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSMessage">
+      <soap12:operation soapAction="http://tempuri.org/ReceiveSMSMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ReceiveSMSMessageAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachment">
+      <soap12:operation soapAction="http://tempuri.org/GetAttachment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAttachmentAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOcUserState">
+      <soap12:operation soapAction="http://tempuri.org/GetOcUserState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetOcUserStateAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendingMessageStatusByToken">
+      <soap12:operation soapAction="http://tempuri.org/GetSendingMessageStatusByToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSendingMessageStatusByTokenAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendGroupMails">
+      <soap12:operation soapAction="http://tempuri.org/SendGroupMails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SendGroupMailsAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendGroupMailsWithAttachments">
+      <soap12:operation soapAction="http://tempuri.org/SendGroupMailsWithAttachments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SendGroupMailsWithAttachmentsAuthenticationSoapHeader" part="AuthenticationSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MessagingHttpGet" type="tns:MessagingHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SendOCMessage">
+      <http:operation location="/SendOCMessage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSMessage">
+      <http:operation location="/SendSMSMessage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFormatSMSMessage">
+      <http:operation location="/SendFormatSMSMessage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSMessage">
+      <http:operation location="/ReceiveSMSMessage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachment">
+      <http:operation location="/GetAttachment" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOcUserState">
+      <http:operation location="/GetOcUserState" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendingMessageStatusByToken">
+      <http:operation location="/GetSendingMessageStatusByToken" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendGroupMails">
+      <http:operation location="/SendGroupMails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MessagingHttpPost" type="tns:MessagingHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SendOCMessage">
+      <http:operation location="/SendOCMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMSMessage">
+      <http:operation location="/SendSMSMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendFormatSMSMessage">
+      <http:operation location="/SendFormatSMSMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReceiveSMSMessage">
+      <http:operation location="/ReceiveSMSMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachment">
+      <http:operation location="/GetAttachment" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOcUserState">
+      <http:operation location="/GetOcUserState" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSendingMessageStatusByToken">
+      <http:operation location="/GetSendingMessageStatusByToken" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendGroupMails">
+      <http:operation location="/SendGroupMails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Messaging">
+    <wsdl:port name="MessagingSoap" binding="tns:MessagingSoap">
+      <soap:address location="http://msgcenter.ecmms.foxconn:2571/Messaging.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MessagingSoap12" binding="tns:MessagingSoap12">
+      <soap12:address location="http://msgcenter.ecmms.foxconn:2571/Messaging.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MessagingHttpGet" binding="tns:MessagingHttpGet">
+      <http:address location="http://msgcenter.ecmms.foxconn:2571/Messaging.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MessagingHttpPost" binding="tns:MessagingHttpPost">
+      <http:address location="http://msgcenter.ecmms.foxconn:2571/Messaging.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <s:element name="getAccreditInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAccreditInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAccreditInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEcardInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="empno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEcardInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEcardInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResignedEployeesInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResignedEployeesInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResignedEployeesInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getAccreditInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getAccreditInfo" />
+  </wsdl:message>
+  <wsdl:message name="getAccreditInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getAccreditInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEcardInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getEcardInfo" />
+  </wsdl:message>
+  <wsdl:message name="getEcardInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getEcardInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResignedEployeesInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResignedEployeesInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetResignedEployeesInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResignedEployeesInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AccreditInfoSoap">
+    <wsdl:operation name="getAccreditInfo">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">派駐干部資料</documentation>
+      <wsdl:input message="tns:getAccreditInfoSoapIn" />
+      <wsdl:output message="tns:getAccreditInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEcardInfo">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">申辦一卡通；LH人總處所需台幹資料</documentation>
+      <wsdl:input message="tns:getEcardInfoSoapIn" />
+      <wsdl:output message="tns:getEcardInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResignedEployeesInfo">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">離職人員資料,日期格式為：yyyy/MM/dd hh24:mi:ss</documentation>
+      <wsdl:input message="tns:GetResignedEployeesInfoSoapIn" />
+      <wsdl:output message="tns:GetResignedEployeesInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccreditInfoSoap" type="tns:AccreditInfoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAccreditInfo">
+      <soap:operation soapAction="http://tempuri.org/getAccreditInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEcardInfo">
+      <soap:operation soapAction="http://tempuri.org/getEcardInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResignedEployeesInfo">
+      <soap:operation soapAction="http://tempuri.org/GetResignedEployeesInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccreditInfo">
+    <wsdl:port name="AccreditInfoSoap" binding="tns:AccreditInfoSoap">
+      <soap:address location="http://wf.foxconn.com/info/accreditinfo.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="LoadMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMessageResult" type="tns:ControlToken" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ControlToken">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DataFilled" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasError" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Code" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Message">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Sender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MsgType" type="tns:MsgType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeetingInfo">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MsgType">
+        <s:restriction base="s:string">
+          <s:enumeration value="UserMsg" />
+          <s:enumeration value="SystemMsg" />
+          <s:enumeration value="Online" />
+          <s:enumeration value="Offline" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOnlinePersons">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOnlinePersonsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOnlinePersonsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Notice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NoticeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SendMsg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="tns:Message" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMsgResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SendSystemMsg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="tns:Message" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSystemMsgResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="NoticeAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="NoticeAllResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="tns:ControlToken" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoadMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMessage" />
+  </wsdl:message>
+  <wsdl:message name="LoadMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlinePersonsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnlinePersons" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlinePersonsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnlinePersonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="NoticeSoapIn">
+    <wsdl:part name="parameters" element="tns:Notice" />
+  </wsdl:message>
+  <wsdl:message name="NoticeSoapOut">
+    <wsdl:part name="parameters" element="tns:NoticeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMsg" />
+  </wsdl:message>
+  <wsdl:message name="SendMsgSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSystemMsgSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSystemMsg" />
+  </wsdl:message>
+  <wsdl:message name="SendSystemMsgSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSystemMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="NoticeAllSoapIn">
+    <wsdl:part name="parameters" element="tns:NoticeAll" />
+  </wsdl:message>
+  <wsdl:message name="NoticeAllSoapOut">
+    <wsdl:part name="parameters" element="tns:NoticeAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DataServiceSoap">
+    <wsdl:operation name="LoadMessage">
+      <wsdl:input message="tns:LoadMessageSoapIn" />
+      <wsdl:output message="tns:LoadMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlinePersons">
+      <wsdl:input message="tns:GetOnlinePersonsSoapIn" />
+      <wsdl:output message="tns:GetOnlinePersonsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Notice">
+      <wsdl:input message="tns:NoticeSoapIn" />
+      <wsdl:output message="tns:NoticeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg">
+      <wsdl:input message="tns:SendMsgSoapIn" />
+      <wsdl:output message="tns:SendMsgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSystemMsg">
+      <wsdl:input message="tns:SendSystemMsgSoapIn" />
+      <wsdl:output message="tns:SendSystemMsgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NoticeAll">
+      <wsdl:input message="tns:NoticeAllSoapIn" />
+      <wsdl:output message="tns:NoticeAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DataServiceSoap" type="tns:DataServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadMessage">
+      <soap:operation soapAction="http://tempuri.org/LoadMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlinePersons">
+      <soap:operation soapAction="http://tempuri.org/GetOnlinePersons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Notice">
+      <soap:operation soapAction="http://tempuri.org/Notice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg">
+      <soap:operation soapAction="http://tempuri.org/SendMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSystemMsg">
+      <soap:operation soapAction="http://tempuri.org/SendSystemMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoticeAll">
+      <soap:operation soapAction="http://tempuri.org/NoticeAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DataServiceSoap12" type="tns:DataServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoadMessage">
+      <soap12:operation soapAction="http://tempuri.org/LoadMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlinePersons">
+      <soap12:operation soapAction="http://tempuri.org/GetOnlinePersons" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Notice">
+      <soap12:operation soapAction="http://tempuri.org/Notice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMsg">
+      <soap12:operation soapAction="http://tempuri.org/SendMsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSystemMsg">
+      <soap12:operation soapAction="http://tempuri.org/SendSystemMsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NoticeAll">
+      <soap12:operation soapAction="http://tempuri.org/NoticeAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataService">
+    <wsdl:port name="DataServiceSoap" binding="tns:DataServiceSoap">
+      <soap:address location="http://10.134.129.196:6061/DataService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DataServiceSoap12" binding="tns:DataServiceSoap12">
+      <soap12:address location="http://10.134.129.196:6061/DataService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

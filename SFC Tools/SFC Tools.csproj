@@ -1,0 +1,673 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CAAF30B7-3896-47DA-B793-826BD479C1E3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SFC_Tools</RootNamespace>
+    <AssemblyName>SFC Tools</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CS_MYCOM.ICO</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SFC_Tools.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClassLibrary1">
+      <HintPath>Include\ClassLibrary1.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonFuns">
+      <HintPath>bin\Release\CommonFuns.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreLibs, Version=1.2.30604.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MyReferences\CoreLibs.dll</HintPath>
+    </Reference>
+    <Reference Include="GlassButton">
+      <HintPath>bin\Release\GlassButton.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>MyReferences\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.LabelManager2">
+      <HintPath>bin\Release\Interop.LabelManager2.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.SAPFunctionsOCX">
+      <HintPath>Include\SAPRfcFunc\Interop.SAPFunctionsOCX.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.SAPLogonCtrl">
+      <HintPath>Include\SAPRfcFunc\Interop.SAPLogonCtrl.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.SAPTableFactoryCtrl">
+      <HintPath>Include\SAPRfcFunc\Interop.SAPTableFactoryCtrl.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>MyReferences\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="LumiSoft.Net">
+      <HintPath>Include\SuperNotes\LumiSoft.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="NPOI, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MyReferences\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MyReferences\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MyReferences\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MyReferences\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PriviAuthentication, Version=1.0.5170.26818, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Include\PriviAuthentication.dll</HintPath>
+    </Reference>
+    <Reference Include="SAP.Connector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=50436dca5c7f7d23">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Include\SAPRfcFunc\SAP.Connector.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base64.cs" />
+    <Compile Include="Classes\BitmapRegion.cs" />
+    <Compile Include="Classes\CMESAccess.cs" />
+    <Compile Include="Classes\ConstData.cs" />
+    <Compile Include="Classes\CopyAllFiles.cs" />
+    <Compile Include="Classes\DelSpecifiedFiles.cs" />
+    <Compile Include="Classes\FileEncrypt.cs" />
+    <Compile Include="Classes\ItemExchangeInMatrix.cs" />
+    <Compile Include="Classes\ListViewExtensions.cs" />
+    <Compile Include="Classes\LogHelper.cs" />
+    <Compile Include="Classes\MailHeaderAndBody.cs" />
+    <Compile Include="Classes\MyMessageEventArgs.cs" />
+    <Compile Include="Classes\NPOIHelper.cs" />
+    <Compile Include="Classes\NPOIRWExcel.cs" />
+    <Compile Include="Classes\SubThread.cs" />
+    <Compile Include="Forms\ucControlTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucControlTest.Designer.cs">
+      <DependentUpon>ucControlTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucDS05BomImport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucDS05BomImport.Designer.cs">
+      <DependentUpon>ucDS05BomImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucGDITest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucGDITest.Designer.cs">
+      <DependentUpon>ucGDITest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucMultiThreadCommunicate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucMultiThreadCommunicate.Designer.cs">
+      <DependentUpon>ucMultiThreadCommunicate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucParentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucParentControl.Designer.cs">
+      <DependentUpon>ucParentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucSMOTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucSMOTest.Designer.cs">
+      <DependentUpon>ucSMOTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MDBomInfo.cs" />
+    <Compile Include="Model\mdHostInfo.cs" />
+    <Compile Include="Model\MdRepairStationsInfo.cs" />
+    <Compile Include="Classes\MySqlDAL.cs" />
+    <Compile Include="Classes\MyTransTablesFormOraToMySql.cs" />
+    <Compile Include="Classes\PrivateSecretHelper.cs" />
+    <Compile Include="Classes\PublicMethod.cs" />
+    <Compile Include="Classes\SecretHelper.cs" />
+    <Compile Include="Classes\XmlFileRW.cs" />
+    <Compile Include="DBAccess.cs" />
+    <Compile Include="ExcelRW.cs" />
+    <Compile Include="Forms\ucCurl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucCurl.Designer.cs">
+      <DependentUpon>ucCurl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucEnDeCrypt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucEnDeCrypt.Designer.cs">
+      <DependentUpon>ucEnDeCrypt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucGetAllPwds.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucGetAllPwds.Designer.cs">
+      <DependentUpon>ucGetAllPwds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucGetInfoFromWebPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucGetInfoFromWebPage.Designer.cs">
+      <DependentUpon>ucGetInfoFromWebPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucMailTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucMailTest.Designer.cs">
+      <DependentUpon>ucMailTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucNewRoute.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucNewRoute.Designer.cs">
+      <DependentUpon>ucNewRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucPCMSMaintain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucPCMSMaintain.Designer.cs">
+      <DependentUpon>ucPCMSMaintain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucSapTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucSapTest.Designer.cs">
+      <DependentUpon>ucSapTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucSpAnalyse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucSpAnalyse.Designer.cs">
+      <DependentUpon>ucSpAnalyse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucTransTablesFormOraToMySql.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucTransTablesFormOraToMySql.Designer.cs">
+      <DependentUpon>ucTransTablesFormOraToMySql.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucWebServiceTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucWebServiceTest.Designer.cs">
+      <DependentUpon>ucWebServiceTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucWorkLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucWorkLog.Designer.cs">
+      <DependentUpon>ucWorkLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucXmlTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucXmlTest.Designer.cs">
+      <DependentUpon>ucXmlTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\uFileFormate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\uFileFormate.Designer.cs">
+      <DependentUpon>uFileFormate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GetNextXChar.cs" />
+    <Compile Include="Model\BlockInfo.cs" />
+    <Compile Include="Model\BrFenixDell.cs" />
+    <Compile Include="Model\MdSpInfo.cs" />
+    <Compile Include="Model\SnInfo.cs" />
+    <Compile Include="Model\RouteCodeOfEventArgs.cs" />
+    <Compile Include="Forms\frmLoadRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLoadRoute.Designer.cs">
+      <DependentUpon>frmLoadRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmViewPic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewPic.Designer.cs">
+      <DependentUpon>frmViewPic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RouteTableModel.cs" />
+    <Compile Include="Model\StationGroupModel.cs" />
+    <Compile Include="Model\TestModel.cs" />
+    <Compile Include="Forms\myButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\myButton.Designer.cs">
+      <DependentUpon>myButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\ucBorderButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyControl\ucBorderButton.Designer.cs">
+      <DependentUpon>ucBorderButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControl\ucSpeicalBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyControl\ucSpeicalBtn.Designer.cs">
+      <DependentUpon>ucSpeicalBtn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\LanguageConfig.cs" />
+    <Compile Include="Service References\ServiceReference2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference4\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference5\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TiptopService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SFCStartup.cs" />
+    <Compile Include="Forms\ucAnalyseTestLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucAnalyseTestLog.Designer.cs">
+      <DependentUpon>ucAnalyseTestLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucReadFile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucReadFile.Designer.cs">
+      <DependentUpon>ucReadFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucRoute.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucRoute.Designer.cs">
+      <DependentUpon>ucRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucTest.Designer.cs">
+      <DependentUpon>ucTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucTestICT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucTestICT.Designer.cs">
+      <DependentUpon>ucTestICT.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\frmLoadRoute.resx">
+      <DependentUpon>frmLoadRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucControlTest.resx">
+      <DependentUpon>ucControlTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucCurl.resx">
+      <DependentUpon>ucCurl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucDS05BomImport.resx">
+      <DependentUpon>ucDS05BomImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucEnDeCrypt.resx">
+      <DependentUpon>ucEnDeCrypt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucGDITest.resx">
+      <DependentUpon>ucGDITest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucGetAllPwds.resx">
+      <DependentUpon>ucGetAllPwds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucGetInfoFromWebPage.resx">
+      <DependentUpon>ucGetInfoFromWebPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucMailTest.resx">
+      <DependentUpon>ucMailTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucMultiThreadCommunicate.resx">
+      <DependentUpon>ucMultiThreadCommunicate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucNewRoute.resx">
+      <DependentUpon>ucNewRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucParentControl.resx">
+      <DependentUpon>ucParentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucPCMSMaintain.resx">
+      <DependentUpon>ucPCMSMaintain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucSapTest.resx">
+      <DependentUpon>ucSapTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucSMOTest.resx">
+      <DependentUpon>ucSMOTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucSpAnalyse.resx">
+      <DependentUpon>ucSpAnalyse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucTransTablesFormOraToMySql.resx">
+      <DependentUpon>ucTransTablesFormOraToMySql.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucWebServiceTest.resx">
+      <DependentUpon>ucWebServiceTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucWorkLog.resx">
+      <DependentUpon>ucWorkLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucXmlTest.resx">
+      <DependentUpon>ucXmlTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\uFileFormate.resx">
+      <DependentUpon>uFileFormate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewPic.resx">
+      <DependentUpon>frmViewPic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\myButton.resx">
+      <DependentUpon>myButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\ucBorderButton.resx">
+      <DependentUpon>ucBorderButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControl\ucSpeicalBtn.resx">
+      <DependentUpon>ucSpeicalBtn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucAnalyseTestLog.resx">
+      <DependentUpon>ucAnalyseTestLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucReadFile.resx">
+      <DependentUpon>ucReadFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucRoute.resx">
+      <DependentUpon>ucRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucTest.en-US.resx">
+      <DependentUpon>ucTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucTest.resx">
+      <DependentUpon>ucTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucTest.zh-Hans.resx">
+      <DependentUpon>ucTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucTestICT.resx">
+      <DependentUpon>ucTestICT.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Curl\curllib.lib" />
+    <None Include="Curl\libcurl_imp.lib" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\ServiceReference2\login.wsdl" />
+    <None Include="Service References\ServiceReference2\SFC_Tools.ServiceReference2.MembershipCreateStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference2\SFC_Tools.ServiceReference2.MembershipUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference3\accreditinfo.wsdl" />
+    <None Include="Service References\ServiceReference4\DataService.wsdl" />
+    <None Include="Service References\ServiceReference4\SFC_Tools.ServiceReference4.ControlToken.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference5\Service1.wsdl" />
+    <None Include="Service References\ServiceReference5\SFC_Tools.ServiceReference5.ServiceOut.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TiptopService\Service1.wsdl" />
+    <None Include="Service References\TiptopService\SFC_Tools.TiptopService.ServiceOut.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="System.Data.DataSet.datasource" />
+    <None Include="System.Data.DataTable.datasource" />
+    <None Include="Template\Personal Weekly KPI_W15_劉永雨.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop1.png" />
+    <None Include="Resources\Stop.png" />
+    <None Include="Resources\SMO.ico" />
+    <None Include="bin\Debug\Images\Oth014.ICO" />
+    <Content Include="CS_MYCOM.ICO" />
+    <Content Include="Curl\curllib.dll" />
+    <Content Include="Curl\libcurl.dll" />
+    <Content Include="Curl\libeay32.dll" />
+    <Content Include="Curl\libidn-11.dll" />
+    <Content Include="Curl\librtmp.dll" />
+    <Content Include="Curl\libsas1l.dll" />
+    <Content Include="Curl\libsasl.dll" />
+    <Content Include="Curl\libssh2.dll" />
+    <Content Include="Curl\MyLibCurl.dll" />
+    <Content Include="Curl\openldap.dll" />
+    <Content Include="Curl\ssleay32.dll" />
+    <Content Include="Curl\zlib1.dll" />
+    <None Include="Images\bitmap2.bmp" />
+    <Content Include="Images\SMO.ico" />
+    <Content Include="Images\SMO2000.ICO" />
+    <Content Include="Include\PriviAuthentication.dll" />
+    <Content Include="MyReferences\CoreLibs.dll" />
+    <None Include="Service References\ServiceReference5\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference5\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference5\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference5\Service1.disco" />
+    <None Include="Service References\TiptopService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\TiptopService\configuration.svcinfo" />
+    <None Include="Service References\TiptopService\configuration91.svcinfo" />
+    <None Include="Service References\TiptopService\Service1.disco" />
+    <None Include="Resources\Only.ico" />
+    <None Include="Resources\MAIL.JPEG" />
+    <None Include="Resources\mail.png" />
+    <None Include="Service References\ServiceReference4\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference4\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference4\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference4\DataService.disco" />
+    <None Include="Service References\ServiceReference3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference3\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference3\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference3\accreditinfo.disco" />
+    <None Include="Service References\ServiceReference2\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference2\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference2\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference2\login.disco" />
+    <None Include="Resources\PLAYII.GIF" />
+    <None Include="Resources\NAV1A.GIF" />
+    <None Include="Resources\2.jpg" />
+    <None Include="Resources\a.jpg" />
+    <Content Include="MyReferences\NPOI.dll" />
+    <Content Include="MyReferences\NPOI.OOXML.dll" />
+    <Content Include="MyReferences\NPOI.OpenXml4Net.dll" />
+    <Content Include="MyReferences\NPOI.OpenXmlFormats.dll" />
+    <Content Include="Resources\AppConfig.xml" />
+    <Content Include="Resources\AppResource_EN.xml" />
+    <Content Include="Resources\AppResource_ZH.xml" />
+    <None Include="Resources\Xbutton46.jpg" />
+    <None Include="Resources\galeon.png" />
+    <None Include="Resources\ftprush_64.png" />
+    <None Include="Resources\ART 3 2.GIF" />
+    <None Include="Resources\ART 3 5.GIF" />
+    <None Include="Resources\ART 3 1.GIF" />
+    <None Include="Resources\ART 3 3.GIF" />
+    <None Include="Resources\ART 3 13.GIF" />
+    <None Include="Resources\ART 3 8.GIF" />
+    <None Include="Resources\ART 3 12.GIF" />
+    <None Include="Resources\b.jpg" />
+    <None Include="Resources\icSend.bmp" />
+    <None Include="Resources\icReceive.bmp" />
+    <Content Include="Resources\LanguageDefine.xml" />
+    <None Include="Resources\宇宙之光.jpg" />
+    <None Include="Resources\25019.jpg" />
+    <None Include="Resources\SNOW.ICO" />
+    <None Include="Resources\GlassButton1.bmp" />
+    <None Include="Resources\GlassButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FormCommunicate\" />
+    <Folder Include="Include\SAPRfcFunc\" />
+    <Folder Include="MailTest\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference2\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference3\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference4\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference5\" />
+    <WCFMetadataStorage Include="Service References\TiptopService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Disassembler\SAPFunctionProxy\SAPFunctionProxy.csproj">
+      <Project>{28586c97-e406-4f27-88af-2955b73e39b7}</Project>
+      <Name>SAPFunctionProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Disassembler\SpecialConvertor\SpecialConvertor.csproj">
+      <Project>{a150a112-e275-4aea-9c27-a230b55d0baf}</Project>
+      <Name>SpecialConvertor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
